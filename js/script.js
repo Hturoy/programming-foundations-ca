@@ -58,12 +58,93 @@ for (game of games){
 
 // Question 4
 
-function whatIDontLike(lemon){
-    if(lemon === String){
-        console.log("I dont like" + lemon)
+function whatIDontLike(dislike){
+    if(typeof dislike === "string"){
+        console.log("I dont like " + dislike);
     }
-
     else{
         console.log("Please send in a string")
     }
 }
+
+whatIDontLike("60000kr bills")
+
+
+// Question 5
+
+function twoArguments(arg1, arg2){
+    arg1 == Number(arg1)
+    arg2 == Number(arg2)
+    if(isNaN(arg1) || isNaN(arg2)){
+        console.log("Invalid argument(s)")
+        return "Invalid argument(s)"
+    }else{
+        const subtraction = arg2 - arg1;
+        console.log(subtraction)
+        return subtraction
+    }
+}
+twoArguments ("2", "test");
+twoArguments ("61", "130");
+
+const subtraction = document.querySelector("#subtraction")
+subtraction.innerHTML += "<ul>" + "<li>" + twoArguments(61, 130) + "</li>" + "</ul>";
+
+
+
+// Question 6
+
+const knapp = document.querySelector(".page")
+const title = document.querySelector("title")
+const background = document.querySelector("body")
+const heading = document.querySelector("h1")
+const list = document.querySelector (".games")
+knapp.addEventListener("click", function(){
+  title.innerHTML = "Updated title"
+  background.style.background = "yellow"
+  heading.style.color = "green"
+  heading.style.fontFamily = "impact"
+  heading.innerHTML = "<h1>" + "<a href='#'>" + "Programming Foundations Course Assignment" + "</a>" + "</h1>"
+  list.style.listStyle = "none"
+  list.style.padding = "0"
+}
+);
+
+
+
+// Question 7
+
+var toys = [
+	{
+		name: "Lego",
+		price: 15.6,
+	},
+	{
+		name: "Master of the Universe",
+		price: "28.3",
+	},
+	{
+		name: "Barbie",
+		price: null,
+	},
+	{
+		name: "Mr Potato Head",
+		price: 89.99,
+	},
+];
+
+const knapp2 = document.querySelector(".price")
+const total = document.querySelector("#total")
+knapp2.addEventListener("click", function(){
+    sum = 0;
+    for(toy of toys){
+        for(property in toy){
+        toy.price = Number(toy.price);
+        sum += toy.price;
+        break;
+        }
+    }
+    console.log(sum)
+    total.innerHTML=("The total is: " + sum + "$");
+}
+);
